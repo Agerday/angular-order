@@ -2,26 +2,14 @@
   <h1>Customers' List</h1>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="card col-3 offset-1" *ngFor="let customer of customers | filter: term" style="margin-bottom: 15px;">
-      <div class="card-body">
-        <a routerLink="/detail/{{customer.id}}">
-          <h3 class="card-title">{{customer.name}}</h3>
-        </a>
-        <div class="card-text">
-          <span class="left">{{customer.stockUrgency}}</span>
-          <span class><img class="resize" src="../../assets/img/{{customer.stockUrgency}}.png" alt="..."></span>
-          <span class="right">{{customer.price}} €</span>
-          <div class="bot-card-text ">
-            <span><a routerLink="/wip" class="btn btn-primary"><i
-              class="material-icons">shopping_cart</i> Add to basket</a></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let customer of customers">
+    <a routerLink="/detail/{{customer.id}}">
+      <h3>{{customer.firstName}}</h3>
+    </a>
+  </li>
+</ul>
 <br>
-<br><br>
+<br>
+<br>
 <br>
