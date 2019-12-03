@@ -1,0 +1,19 @@
+.jumbotron {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  justify-content: center;
+  align-items: center;
+}
+
+.form-buttons .left{
+  float: left;
+}
+
+.form-buttons .right{
+   float: right;
+ }

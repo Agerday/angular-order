@@ -1,0 +1,37 @@
+<div class="jumbotron">
+  <form class="navbar-form">
+    <h1>Items' List</h1>
+    <div class="form-group">
+      <label>
+        <input type="text" name="term" [(ngModel)]="term" class="form-control" placeholder="Filter by name...">
+      </label>
+    </div>
+    <span><a routerLink="/create" class="btn-lg btn-primary" style="font-size: 0.8em;" > New Item</a></span>
+  </form>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="card col-3 offset-1" *ngFor="let item of items | filter: term" style="margin-bottom: 15px;">
+      <div class="card-body">
+        <a routerLink="/detail/{{item.id}}">
+          <h3 class="card-title">{{item.name}}</h3>
+        </a>
+        <img class="image" src="../../assets/img/{{item.name}}.jpg" class="card-img-top" alt="...">
+        <div class="card-text">
+          <span class="left">{{item.stockUrgency}}</span>
+          <span class><img class="resize" src="../../assets/img/{{item.stockUrgency}}.png" alt="..."></span>
+          <span class="right">{{item.price}} €</span>
+          <div class="bot-card-text ">
+            <span><a routerLink="/RIP" class="btn btn-primary"><i
+              class="material-icons">shopping_cart</i> Add to basket</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br><br>
+<br>
+

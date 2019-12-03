@@ -1,0 +1,44 @@
+.jumbotron {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.centering {
+  text-align: center;
+}
+
+.h3{
+  height: 30px;
+  width: 100%;
+}
+
+img.resize {
+  max-width: 0.9em;
+  max-height: 0.9em;
+  margin-bottom: 0.5mm;
+}
+
+.card-text .left {
+  float: left
+}
+
+.card-text .right {
+  float: right;
+
+}
+
+.bot-card-text {
+  align-items: center;
+  justify-content: center;
+}
+
+
+img {
+  object-fit: contain;
+  width: 15em;
+  height: 15em;
+}
+
+

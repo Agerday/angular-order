@@ -1,0 +1,57 @@
+<div *ngIf="item">
+  <div class="jumbotron">
+    <h1>{{item.name | uppercase}}</h1>
+    <img src="../../assets/img/{{item.name}}.jpg" class="card-img-top" alt="...">
+  </div>
+
+  <div class="container" style="margin-top: 70px;">
+    <div class="d-flex justify-content-center">
+      <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input class="form-control" id="name" formControlName="name"/>
+          <div *ngIf="name.invalid" class="text-danger">
+            <div *ngIf="name.errors.required">Name is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea type="text" class="form-control" id="description" formControlName="description"
+                    maxlength="255"></textarea>
+          <div class="small text">
+            <div *ngIf="description.invalid" class="text-danger">
+              <div *ngIf="description.errors.required">Description is required.</div>
+              <div *ngIf="description.errors.maxlength">Description cannot be longer than 255 characters.</div>
+            </div>
+            <div [ngStyle]="{'color': description.value.length === 255 ? 'red' : 'green'}">
+              {{ 255 - description.value.length }}/255 characters left
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="number" class="form-control" id="price" formControlName="price"/>
+          <div *ngIf="price.invalid" class="text-danger">
+            <div *ngIf="price.errors.required">Price is required.</div>
+            <div *ngIf="price.errors.min">Price must be greater than 0.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="amountOfStock">Amount of Stock</label>
+          <input type="number" class="form-control" id="amountOfStock" formControlName="amountOfStock"/>
+          <div *ngIf="amountOfStock.invalid" class="text-danger">
+            <div *ngIf="amountOfStock.errors.required">Amount of stock is required.</div>
+          </div>
+        </div>
+        <div class="form-buttons">
+          <span class="left"><button type="submit" class="btn btn-block btn-success" [disabled]="!itemForm.valid">Update Item</button></span>
+          <span class="right"><button type="back" class="btn btn-block btn-danger" (click)="goBack()">Cancel</button></span>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
